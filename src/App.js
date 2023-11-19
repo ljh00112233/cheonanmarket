@@ -12,6 +12,7 @@ class App extends Component {
       <div>
         <CEAPI/>
         <STAPI />
+        <BCAPI />
       </div>
     );
   }
