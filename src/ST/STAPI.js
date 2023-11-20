@@ -3,6 +3,7 @@ import axios from "axios";
 import Search from "./STSearch"
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
+import DB from "../db/STdb.json"
  
  
 class API extends React.Component{
@@ -11,15 +12,11 @@ class API extends React.Component{
   };
  
   getMarket(){
-    const url = `https://apis.data.go.kr/4490000/stationmarket/stationmarketList?serviceKey=Xz56j4w4KJdgmRWwojz11Ut9YdMHO0teXRXmlNWh7EaC35ouuXGGL5Cj2L1ktToNjtGqvLKh5nJXZNMxkixofg%3D%3D&pageNo=1&numOfRows=10&type=json`;
-    console.log(url);
-    axios.get(url).then((Response) =>{
-      const data = Response.data.item;
-      console.log(data);
-      this.setState({
-        data:data
-      });
-    });
+    const data = DB.item;
+    this.setState({
+      data: data,
+    })
+    console.log(data);
   }
   componentDidMount(){
     this.getMarket();
@@ -28,7 +25,7 @@ class API extends React.Component{
     const {data} = this.state;
     return(
       <div>
-        {/* <header>
+        <header>
           <Link to="/">중앙시장</Link>
           &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/BC">병천시장</Link>
@@ -38,17 +35,6 @@ class API extends React.Component{
           <Link to="/SJ">성정시장</Link>
           &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/ST">역전시장</Link>
-        </header> */}
-        <header>
-          <a href="/">중앙시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/BC">병천시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/SH">성환이화시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/SJ">성정시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/ST">역전시장</a>
           <hr/>
         </header>
         <h1>천안역전시장</h1>
