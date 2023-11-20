@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import { useNavigate } from "react-router-dom"
+import React from "react";
+import {Route, Routes} from "react-router-dom";
 import STAPI from './ST/STAPI'
 import BCAPI from './BC/BCAPI'
 import CEAPI from './CE/CEAPI'
 import SHAPI from './SH/SHAPI'
 import SJAPI from './SJ/SJAPI'
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <CEAPI/>
-        <STAPI />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<CEAPI/>}/>
+      <Route path="/BC" element={<BCAPI/>}/>
+      <Route path="/ST" element={<STAPI/>}/>
+      <Route path="/SH" element={<SHAPI/>}/>
+      <Route path="/SJ" element={<SJAPI/>}/>
+    </Routes>
+  );
 }
+
 
 export default App;

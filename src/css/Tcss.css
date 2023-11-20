@@ -4,10 +4,10 @@ table {
     width: 100%;
   }
   th,
-  td {
+  td, a {
     padding: 6px 15px;
   }
-  th {
+  th, a {
     background: #42444e;
     color: #fff;
     text-align: left;
@@ -18,11 +18,11 @@ table {
   tr:first-child th:last-child {
     border-top-right-radius: 6px;
   }
-  td {
+  td{
     border-right: 1px solid #c6c9cc;
     border-bottom: 1px solid #c6c9cc;
   }
-  td:first-child {
+  td:first-child{
     border-left: 1px solid #c6c9cc;
   }
   tr:nth-child(even) td {

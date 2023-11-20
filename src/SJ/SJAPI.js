@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Search from "./SJSearch"
+import "../css/Tcss.css"
+import {Link} from "react-router-dom";
  
  
 class API extends React.Component{
@@ -26,6 +28,29 @@ class API extends React.Component{
     const {data} = this.state;
     return(
       <div>
+        {/* <header>
+          <Link to="/">중앙시장</Link>
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          <Link to="/BC">병천시장</Link>
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          <Link to="/SH">성환이화시장</Link>
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          <Link to="/SJ">성정시장</Link>
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          <Link to="/ST">역전시장</Link>
+        </header> */}
+        <header>
+          <a href="/">중앙시장</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/BC">병천시장</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/SH">성환이화시장</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/SJ">성정시장</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/ST">역전시장</a>
+          <hr/>
+        </header>
         <h1>천안성정시장</h1>
         <p align="center">시장검색 : <Search /> <button>검색</button></p>
         <table>
