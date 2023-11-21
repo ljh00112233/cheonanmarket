@@ -1,28 +1,28 @@
-import React from "react";
-import axios from "axios";
-import Search from "./STSearch"
+import React, { useState, useEffect } from "react";
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
 import DB from "../db/STdb.json"
  
- 
-class API extends React.Component{
-  state = {
-    data:[],
+function API() {
+  const [state, setState] = useState({data:[]});
+  const [search, setSearch] = useState("");
+  const searching1 = (e) => {
+    setSearch(e.target.value);
   };
- 
-  getMarket(){
+  const searching2 = (e) => {
+    setSearch(e.target.value);
+  };
+  const getMarket=()=>{
     const data = DB.item;
-    this.setState({
+    setState({
       data: data,
     })
     console.log(data);
   }
-  componentDidMount(){
-    this.getMarket();
-  }
-  render(){
-    const {data} = this.state;
+  useEffect(() => {
+    setTimeout(() => {getMarket()},100);
+  },[]);
+    const {data} = state;
     return(
       <div>
         <header>
@@ -37,8 +37,8 @@ class API extends React.Component{
           <Link to="/ST">역전시장</Link>
           <hr/>
         </header>
-        <h1>천안역전시장</h1>
-        <p align="center">시장검색 : <Search /> <button>검색</button></p>
+        <h1>천안중앙시장</h1>  
+        <p align="center">시장검색 : <input type="text" onChange={searching1}></input></p>
         <table>
           <thead>
             <tr>
@@ -52,7 +52,14 @@ class API extends React.Component{
             </tr>
           </thead>
           <tbody>
-          {data.map(item => (
+          {data.filter((item)=>{
+            if(search === ""){
+              return item;
+            }else if(item.tpbiz.includes(search)){
+              return item;
+            }
+          })
+          .map(item => (
           <tr>
               <td>{item.number}</td>
               <td>{item.conm}</td>
@@ -66,7 +73,7 @@ class API extends React.Component{
           </tbody>
         </table>
       </div>
-    )
-  }
+    );  
 }
+
 export default API;
