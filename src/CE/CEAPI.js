@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
 import DB from "../db/CEdb.json"
+import Input from "./Input";
 
 function API() {
   const [state, setState] = useState({data:[]});
@@ -19,6 +20,11 @@ function API() {
       data: data,
     })
     console.log(data);
+  }
+  const onChange=()=>{
+    setState({
+      
+    })
   }
   useEffect(() => {
     setTimeout(() => {getMarket()},100);
@@ -38,6 +44,16 @@ function API() {
         <span align="center">업종구분별검색 : <input type="text" onChange={searching1}></input></span>
         &nbsp;&nbsp;
         <span align="center">상호명별검색 : <input type="text" onChange={searching2}></input></span>
+        <div>
+          <div>
+          <Input search1={searching1}/>
+          </div>
+          <div>
+            <button onClick={searching1}>
+              검색
+            </button>
+          </div>
+        </div>
         <hr/>
         <table>
           <thead>
