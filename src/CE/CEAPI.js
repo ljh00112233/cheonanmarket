@@ -5,9 +5,13 @@ import DB from "../db/CEdb.json"
 
 function API() {
   const [state, setState] = useState({data:[]});
-  const [search, setSearch] = useState("");
-  const searching = (e) => {
-    setSearch(e.target.value);
+  const [search1, setSearch1] = useState("");
+  const [search2, setSearch2] = useState("");
+  const searching1 = (e) => {
+    setSearch1(e.target.value);
+  };
+  const searching2 = (e) => {
+    setSearch2(e.target.value);
   };
   const getMarket=()=>{
     const data = DB.item;
@@ -24,18 +28,17 @@ function API() {
       <div>
         <header>
           <Link to="/">중앙시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/BC">병천시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/SH">성환이화시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/SJ">성정시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
           <Link to="/ST">역전시장</Link>
           <hr/>
         </header>
         <h1>천안중앙시장</h1>  
-        <p align="center">시장검색 : <input type="text" onChange={searching}></input></p>
+        <span align="center">업종구분별검색 : <input type="text" onChange={searching1}></input></span>
+        &nbsp;&nbsp;
+        <span align="center">상호명별검색 : <input type="text" onChange={searching2}></input></span>
+        <hr/>
         <table>
           <thead>
             <tr>
@@ -50,9 +53,16 @@ function API() {
           </thead>
           <tbody>
           {data.filter((item)=>{
-            if(search === ""){
+            if(search1 === ""){
               return item;
-            }else if(item.tpbiz.includes(search)){
+            }else if(item.tpbiz.includes(search1)){
+              return item;
+            }
+          })
+          .filter((item)=>{
+            if(search2 === ""){
+              return item;
+            }else if(item.conm.includes(search2)){
               return item;
             }
           })
