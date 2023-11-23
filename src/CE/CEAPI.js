@@ -7,12 +7,14 @@ function API() {
   const [state, setState] = useState({data:[]});
   const [search1, setSearch1] = useState("");
   const [search2, setSearch2] = useState("");
+
   const searching1 = (e) => {
     setSearch1(e.target.value);
   };
   const searching2 = (e) => {
     setSearch2(e.target.value);
   };
+
   const getMarket=()=>{
     const data = DB.item;
     setState({
@@ -24,6 +26,7 @@ function API() {
   useEffect(() => {
     setTimeout(() => {getMarket()},100);
   },[]);
+
     const {data} = state;
     return(
       <div>
