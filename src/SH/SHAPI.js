@@ -1,58 +1,44 @@
-import React from "react";
-import axios from "axios";
-import Search from "./SHSearch"
+import React, { useState, useEffect } from "react";
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
- 
- 
-class API extends React.Component{
-  state = {
-    data:[],
+import DB from "../db/SHdb.json"
+
+function API() {
+  const [state, setState] = useState({data:[]});
+  const [search1, setSearch1] = useState("");
+  const [search2, setSearch2] = useState("");
+  const searching1 = (e) => {
+    setSearch1(e.target.value);
   };
- 
-  getMarket(){
-    const url = `https://apis.data.go.kr/4490000/shmarket/shmarketList?serviceKey=Xz56j4w4KJdgmRWwojz11Ut9YdMHO0teXRXmlNWh7EaC35ouuXGGL5Cj2L1ktToNjtGqvLKh5nJXZNMxkixofg%3D%3D&type=json&numOfRows=20`;
-    console.log(url);
-    axios.get(url).then((Response) =>{
-      const data = Response.data.item;
-      console.log(data);
-      this.setState({
-        data:data
-      });
-    });
+  const searching2 = (e) => {
+    setSearch2(e.target.value);
+  };
+  const getMarket=()=>{
+    const data = DB.item;
+    setState({
+      data: data,
+    })
+    console.log(data);
   }
-  componentDidMount(){
-    this.getMarket();
-  }
-  render(){
-    const {data} = this.state;
+  useEffect(() => {
+    setTimeout(() => {getMarket()},100);
+  },[]);
+    const {data} = state;
     return(
       <div>
-        {/* <header>
-          <Link to="/">중앙시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
-          <Link to="/BC">병천시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
-          <Link to="/SH">성환이화시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
-          <Link to="/SJ">성정시장</Link>
-          &nbsp;&nbsp; | &nbsp;&nbsp;
-          <Link to="/ST">역전시장</Link>
-        </header> */}
         <header>
-          <a href="/">중앙시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/BC">병천시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/SH">성환이화시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/SJ">성정시장</a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href="/ST">역전시장</a>
+          <Link to="/">중앙시장</Link>
+          <Link to="/BC">병천시장</Link>
+          <Link to="/SH">성환이화시장</Link>
+          <Link to="/SJ">성정시장</Link>
+          <Link to="/ST">역전시장</Link>
           <hr/>
         </header>
-        <h1>천안성환이화시장</h1>
-        <p align="center">시장검색 : <Search /> <button>검색</button></p>
+        <h1>천안중앙시장</h1>  
+        <span align="center">업종구분별검색 : <input type="text" onChange={searching1}></input></span>
+        &nbsp;&nbsp;
+        <span align="center">상호명별검색 : <input type="text" onChange={searching2}></input></span>
+        <hr/>
         <table>
           <thead>
             <tr>
@@ -66,7 +52,21 @@ class API extends React.Component{
             </tr>
           </thead>
           <tbody>
-          {data.map(item => (
+          {data.filter((item)=>{
+            if(search1 === ""){
+              return item;
+            }else if(item.tpbiz.includes(search1)){
+              return item;
+            }
+          })
+          .filter((item)=>{
+            if(search2 === ""){
+              return item;
+            }else if(item.conm.includes(search2)){
+              return item;
+            }
+          })
+          .map(item => (
           <tr>
               <td>{item.number}</td>
               <td>{item.conm}</td>
@@ -80,7 +80,7 @@ class API extends React.Component{
           </tbody>
         </table>
       </div>
-    )
-  }
+    );  
 }
+
 export default API;
