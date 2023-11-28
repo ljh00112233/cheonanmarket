@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
 import DB from "../db/SJdb.json"
+import 별빛우물성정시장 from '../Market_img/별빛우물성정시장.jpg';
  
 function API() {
   const [state, setState] = useState({data:[]});
@@ -34,7 +35,8 @@ function API() {
           <Link to="/ST">역전시장</Link>
           <hr/>
         </header>
-        <h1>천안중앙시장</h1>  
+        <h1>성정시장</h1>  
+        <h1>별빛우물성정시장 <img src={별빛우물성정시장} width='150px' height='150px'/></h1>
         <span align="center">업종구분별검색 : <input type="text" onChange={searching1}></input></span>
         &nbsp;&nbsp;
         <span align="center">상호명별검색 : <input type="text" onChange={searching2}></input></span>
