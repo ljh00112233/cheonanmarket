@@ -73,7 +73,7 @@ function API() {
           .map(item => (
           <tr>
               <td>{item.number}</td>
-              <td>{item.conm}</td>
+              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm}} to="/Location">{item.conm}</Link></td>
               <td>{item.hour}</td>
               <td>{item.tpbiz}</td>
               <td>{item.roadNmAddr}</td>

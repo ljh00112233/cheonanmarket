@@ -5,6 +5,7 @@ import BCAPI from './BC/BCAPI'
 import CEAPI from './CE/CEAPI'
 import SHAPI from './SH/SHAPI'
 import SJAPI from './SJ/SJAPI'
+import Location from './Map/Location'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/ST" element={<STAPI/>}/>
       <Route path="/SH" element={<SHAPI/>}/>
       <Route path="/SJ" element={<SJAPI/>}/>
+      <Route path="/Location" element={<Location/>}/>
     </Routes>
   );
 }
