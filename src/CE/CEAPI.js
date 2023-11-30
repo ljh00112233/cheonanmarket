@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Tcss.css"
 import {Link} from "react-router-dom";
 import DB from "../db/CEdb.json"
@@ -8,6 +9,7 @@ function API() {
   const [state, setState] = useState({data:[]});
   const [search1, setSearch1] = useState("");
   const [search2, setSearch2] = useState("");
+
   const searching1 = (e) => {
     setSearch1(e.target.value);
   };
@@ -77,7 +79,7 @@ function API() {
           .map(item => (
           <tr>
               <td>{item.number}</td>
-              <td>{item.conm}</td>
+              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm}} to="/Location">{item.conm}</Link></td>
               <td>{item.hour}</td>
               <td>{item.tpbiz}</td>
               <td>{item.roadNmAddr}</td>
