@@ -52,6 +52,7 @@ function API() {
               <th>도로명주소</th>
               <th>지번주소</th>
               <th>전화번호</th>
+              <th>사진</th>
             </tr>
           </thead>
           <tbody>
@@ -78,6 +79,7 @@ function API() {
               <td>{item.roadNmAddr}</td>
               <td>{item.lotnoAddr}</td>
               <td>{item.telno}</td>
+              <td><img src={item.img} alt={item.marketName} width='150px' height='150px' /></td>
             </tr>
           ))}
           </tbody>
