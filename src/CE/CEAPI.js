@@ -34,7 +34,7 @@ function API() {
     return(
       <div>
         <header>
-          <Link to="/">중앙시장</Link>
+          <Link to="/CE">중앙시장</Link>
           <Link to="/BC">병천시장</Link>
           <Link to="/SH">성환이화시장</Link>
           <Link to="/SJ">성정시장</Link>
