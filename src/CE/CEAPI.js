@@ -22,11 +22,6 @@ function API() {
     })
     console.log(data);
   }
-  const onChange=()=>{
-    setState({
-      
-    })
-  }
   useEffect(() => {
     setTimeout(() => {getMarket()},100);
   },[]);
