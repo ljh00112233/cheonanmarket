@@ -4,29 +4,26 @@ import {Link} from "react-router-dom";
 const { kakao } = window;
 
 const Location=()=>{
-
   const location = useLocation();
 	const la = location.state.la;
   const lo = location.state.lo;
   const name = location.state.name;
   const img = location.state.img;
+
   useEffect(()=>{
     const container = document.getElementById('map');
     const options = {
       center: new kakao.maps.LatLng(la, lo),
       level: 3
     };
-
     const map = new kakao.maps.Map(container, options);
     const markerPosition  = new kakao.maps.LatLng(la, lo); 
-    
     const marker = new kakao.maps.Marker({
       position: markerPosition
     });
-
     marker.setMap(map);
-  }, [])
-
+  }, []);
+  
   return (
     <div>
       <nav>
@@ -53,7 +50,7 @@ const Location=()=>{
         <img src={img}/>
       </div>
     </div>
-  )
+  );
 }
 
 export default Location;

@@ -1,11 +1,11 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
 import './App.css';
-import STAPI from './ST/STAPI'
-import BCAPI from './BC/BCAPI'
-import CEAPI from './CE/CEAPI'
-import SHAPI from './SH/SHAPI'
-import SJAPI from './SJ/SJAPI'
+import STAPI from './Market/ST/STAPI'
+import BCAPI from './Market/BC/BCAPI'
+import CEAPI from './Market/CE/CEAPI'
+import SHAPI from './Market/SH/SHAPI'
+import SJAPI from './Market/SJ/SJAPI'
 import Location from './Map/Location'
 import Signup from './Components/LoginSignup/Signup';
 import Login from './Components/LoginSignup/Login';
