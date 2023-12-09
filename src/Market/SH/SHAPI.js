@@ -46,7 +46,7 @@ function API() {
         </div>
       </nav>
       <div align="center">
-        <h1>성환이화시장</h1>
+        <h1 className="green-text text-lighten-2">성환이화시장</h1>
         <img src={성환이화시장} width='500px' height='300px'/>
       </div>
       <div className="row">
