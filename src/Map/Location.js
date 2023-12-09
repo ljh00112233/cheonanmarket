@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from "react-router-dom";
 import {Link} from "react-router-dom";
-import "../css/Mcss.css"
 const { kakao } = window;
 
 const Location=()=>{
@@ -10,6 +9,7 @@ const Location=()=>{
 	const la = location.state.la;
   const lo = location.state.lo;
   const name = location.state.name;
+  const img = location.state.img;
   useEffect(()=>{
     const container = document.getElementById('map');
     const options = {
@@ -29,19 +29,28 @@ const Location=()=>{
 
   return (
     <div>
-      <header>
-          <Link to="/">중앙시장</Link>
-          <Link to="/BC">병천시장</Link>
-          <Link to="/SH">성환이화시장</Link>
-          <Link to="/SJ">성정시장</Link>
-          <Link to="/ST">역전시장</Link>
-          <hr/>
-      </header>
-      <div className='text'>
-        <h1>{name}</h1>
-      </div>
-      <div className='ComponentBox'>
-        <p id="map" style={{width:"500px", height:"400px"}}></p>
+      <nav>
+        <div className="nav-wrapper">
+          <ul>
+            <li><Link to="/">중앙시장</Link></li>
+            <li><Link to="/BC">병천시장</Link></li>
+            <li><Link to="/SH">성환이화시장</Link></li>
+            <li><Link to="/SJ">성정시장</Link></li>
+            <li><Link to="/ST">역전시장</Link></li>
+          </ul>
+          <ul className="right">
+            <Link to="/Signup">게시판</Link>
+          </ul>
+        </div>
+      </nav>
+      <div align="center">
+        <div className='text'>
+          <h1>{name}</h1>
+        </div>
+        <div className='ComponentBox'>
+          <p id="map" style={{width:"500px", height:"400px"}}></p>
+        </div>
+        <img src={img}/>
       </div>
     </div>
   )

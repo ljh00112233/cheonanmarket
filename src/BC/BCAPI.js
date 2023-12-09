@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../css/Tcss.css"
 import {Link} from "react-router-dom";
 import DB from "../db/BCdb.json"
 import 병천시장 from '../Market_img/병천시장.jpg';
@@ -28,23 +27,40 @@ function API() {
     const {data} = state;
     return(
       <div>
-        <header>
-          <Link to="/CE">중앙시장</Link>
-          <Link to="/BC">병천시장</Link>
-          <Link to="/SH">성환이화시장</Link>
-          <Link to="/SJ">성정시장</Link>
-          <Link to="/ST">역전시장</Link>
-          <hr/>
-        </header>
-        <h1>병천시장</h1>  
-        <img src={병천시장} width='150px' height='150px'/>
-        <hr/> 
-        <span align="center">업종구분별검색 : <input type="text" onChange={searching1}></input></span>
-        &nbsp;&nbsp;
-        <span align="center">상호명별검색 : <input type="text" onChange={searching2}></input></span>
-        <hr/>
-        <table>
-          <thead>
+        <nav>
+          <div className="nav-wrapper">
+            <ul>
+              <li><Link to="/">중앙시장</Link></li>
+              <li><Link to="/BC">병천시장</Link></li>
+              <li><Link to="/SH">성환이화시장</Link></li>
+              <li><Link to="/SJ">성정시장</Link></li>
+              <li><Link to="/ST">역전시장</Link></li>
+            </ul>
+            <ul className="right">
+            <Link to="/Signup">게시판</Link>
+            </ul>
+          </div>
+        </nav>
+        <div align="center">
+          <h1 className="green-text text-lighten-2">병천시장</h1>
+          <img src={병천시장} width='500px' height='300px'/>
+        </div>
+        <div className="row">
+          <h4>시장찾기</h4>
+          <form className="col s12">
+            <div className="row">
+              <div className="input-field col s6">
+                <input placeholder="업종구분별검색" id="tpbiz" type="text" class="validate" onChange={searching1}/>
+              </div>
+              <div className="input-field col s6">
+                <input placeholder="상호명별검색" id="conm" type="text" class="validate" onChange={searching2}/>
+              </div>
+            </div>
+          </form>
+        </div>
+        <>상호명 클릭시 위치보기</>
+        <table className="striped">
+          <thead className="green lighten-2" >
             <tr>
               <th>연번</th>
               <th>상호명</th>
@@ -74,7 +90,7 @@ function API() {
           .map(item => (
           <tr>
               <td>{item.number}</td>
-              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm}} to="/Location">{item.conm}</Link></td>
+              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm, img:item.img}} to="/Location"><a class="waves-effect waves-light btn">{item.conm}</a></Link></td>
               <td>{item.hour}</td>
               <td>{item.tpbiz}</td>
               <td>{item.roadNmAddr}</td>

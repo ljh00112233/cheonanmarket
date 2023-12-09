@@ -9,13 +9,14 @@ import SJAPI from './SJ/SJAPI'
 import Location from './Map/Location'
 import Signup from './Components/LoginSignup/Signup';
 import Login from './Components/LoginSignup/Login';
+import './css/materialize.css'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Signup />}></Route>
+      <Route path="/Signup" element={<Signup />}></Route>
       <Route path='/Login' element={<Login />}></Route>	
-      <Route path="/CE" element={<CEAPI/>}/>
+      <Route path="/" element={<CEAPI/>}/>
       <Route path="/BC" element={<BCAPI/>}/>
       <Route path="/ST" element={<STAPI/>}/>
       <Route path="/SH" element={<SHAPI/>}/>
