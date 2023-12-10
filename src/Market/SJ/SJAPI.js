@@ -34,19 +34,19 @@ function API() {
       <nav>
         <div className="nav-wrapper">
           <ul>
-            <li><Link to="/">중앙시장</Link></li>
-            <li><Link to="/BC">병천시장</Link></li>
-            <li><Link to="/SH">성환이화시장</Link></li>
-            <li><Link to="/SJ">성정시장</Link></li>
-            <li><Link to="/ST">역전시장</Link></li>
+            <li><Link to="/"><i class="material-icons">shopping_basket 중앙시장</i></Link></li>
+            <li><Link to="/BC"><i class="material-icons">shopping_basket 병천시장</i></Link></li>
+            <li><Link to="/SH"><i class="material-icons">shopping_basket 성환이화시장</i></Link></li>
+            <li><Link to="/SJ"><i class="material-icons">shopping_basket 성정시장</i></Link></li>
+            <li><Link to="/ST"><i class="material-icons">shopping_basket 역전시장</i></Link></li>
           </ul>
           <ul className="right">
-            <Link to="/Signup">게시판</Link>
+            <Link to="/Signup"><i class="material-icons">event_note 게시판</i></Link>
           </ul>
         </div>
       </nav>
       <div align="center">
-        <h1>별빛우물성정시장</h1>  
+        <h1 className="green-text text-lighten-2">별빛우물성정시장</h1>  
         <img src={별빛우물성정시장} width='500px' height='300px'/>
       </div>
       <div className="row">
@@ -94,7 +94,7 @@ function API() {
           .map(item => (
             <tr>
               <td>{item.number}</td>
-              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm}} to="/Location"><a class="waves-effect waves-light btn">{item.conm}</a></Link></td>
+              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm, img:item.img}} to="/Location"><a class="waves-effect waves-light btn"><i class="material-icons">location_on {item.conm}</i></a></Link></td>
               <td>{item.hour}</td>
               <td>{item.tpbiz}</td>
               <td>{item.roadNmAddr}</td>

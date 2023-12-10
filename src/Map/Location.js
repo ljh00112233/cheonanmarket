@@ -28,15 +28,15 @@ const Location=()=>{
     <div>
       <nav>
         <div className="nav-wrapper">
-          <ul>
-            <li><Link to="/">중앙시장</Link></li>
-            <li><Link to="/BC">병천시장</Link></li>
-            <li><Link to="/SH">성환이화시장</Link></li>
-            <li><Link to="/SJ">성정시장</Link></li>
-            <li><Link to="/ST">역전시장</Link></li>
+        <ul>
+            <li><Link to="/"><i class="material-icons">shopping_basket 중앙시장</i></Link></li>
+            <li><Link to="/BC"><i class="material-icons">shopping_basket 병천시장</i></Link></li>
+            <li><Link to="/SH"><i class="material-icons">shopping_basket 성환이화시장</i></Link></li>
+            <li><Link to="/SJ"><i class="material-icons">shopping_basket 성정시장</i></Link></li>
+            <li><Link to="/ST"><i class="material-icons">shopping_basket 역전시장</i></Link></li>
           </ul>
           <ul className="right">
-            <Link to="/Signup">게시판</Link>
+            <Link to="/Signup"><i class="material-icons">event_note 게시판</i></Link>
           </ul>
         </div>
       </nav>
