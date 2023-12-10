@@ -47,64 +47,110 @@ function API() {
       </nav>
       <div align="center">
         <h1 className="green-text text-lighten-2">성환이화시장</h1>
+      </div>
+      <div className="row" align="center">
+        <div className="col s6">
         <img src={성환이화시장} width='500px' height='300px'/>
+        </div>
+        <div className="col s5">
+          <table class="highlight">
+            <thead>
+              <tr>
+                <th>주소</th>
+                <td>충남 천안시 서북구 성환읍 성환중앙로 50</td>
+              </tr>
+              <tr>
+                <th>전화</th>
+                <td>041-583-0290</td>
+              </tr>
+              <tr>
+                <th>개설주기(장날) </th>
+                <td>상설+매월 끝자리 1, 6일 마다 열리는 5일장</td>
+              </tr>
+              <tr>
+                <th>교통</th>
+                <td>1호선 성환역 1번출구 도보 9분</td>
+              </tr>
+              <tr>
+                <th>주차</th>
+                <td>가능</td>
+              </tr>
+              <tr>
+                <th>먹거리</th>
+                <td>순대국밥, 뻥튀기, 유과, 국수, 떡 등</td>
+              </tr>
+              <tr>
+                <th>편의시설</th>
+                <td>화장실, 고객휴게실</td>
+              </tr>
+              <tr>
+                <th>주변관광</th>
+                <td>성환4공원</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </div>
       <div className="row">
-        <h4>시장찾기</h4>
-        <form className="col s12">
+        <div className="col s10 offset-s1">
           <div className="row">
-            <div className="input-field col s6">
-              <input placeholder="업종구분별검색" id="tpbiz" type="text" class="validate" onChange={searching1}/>
-            </div>
-            <div className="input-field col s6">
-              <input placeholder="상호명별검색" id="conm" type="text" class="validate" onChange={searching2}/>
-            </div>
+            <h4>시장찾기</h4>
+            <form className="col s12">
+              <div className="row">
+                <div className="input-field col s6">
+                  <input placeholder="업종구분별검색" id="tpbiz" type="text" class="validate" onChange={searching1}/>
+                </div>
+                <div className="input-field col s6">
+                  <input placeholder="상호명별검색" id="conm" type="text" class="validate" onChange={searching2}/>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+          <>상호명 클릭시 위치보기</>
+          <table className="striped">
+            <thead className="green lighten-2">
+              <tr>
+                <th>연번</th>
+                <th>상호명</th>
+                <th>운영시간</th>
+                <th>업종구분</th>
+                <th>도로명주소</th>
+                <th>지번주소</th>
+                <th>전화번호</th>
+                <th>사진</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.filter((item)=>{
+                if(search1 === ""){
+                  return item;
+                }else if(item.tpbiz.includes(search1)){
+                  return item;
+                }
+              })
+              .filter((item)=>{
+                if(search2 === ""){
+                  return item;
+                }else if(item.conm.includes(search2)){
+                  return item;
+                }
+              })
+              .map(item => (
+                <tr>
+                  <td>{item.number}</td>
+                  <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm, img:item.img}} to="/Location"><a class="waves-effect waves-light btn"><i class="material-icons">location_on {item.conm}</i></a></Link></td>
+                  <td>{item.hour}</td>
+                  <td>{item.tpbiz}</td>
+                  <td>{item.roadNmAddr}</td>
+                  <td>{item.lotnoAddr}</td>
+                  <td>{item.telno}</td>
+                  <td><img src={item.img} alt={item.marketName} width='150px' height='150px' /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <>상호명 클릭시 위치보기</>
-      <table className="striped">
-        <thead className="green lighten-2">
-          <tr>
-            <th>연번</th>
-            <th>상호명</th>
-            <th>운영시간</th>
-            <th>업종구분</th>
-            <th>도로명주소</th>
-            <th>지번주소</th>
-            <th>전화번호</th>
-            <th>사진</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.filter((item)=>{
-            if(search1 === ""){
-              return item;
-            }else if(item.tpbiz.includes(search1)){
-              return item;
-            }
-          })
-          .filter((item)=>{
-            if(search2 === ""){
-              return item;
-            }else if(item.conm.includes(search2)){
-              return item;
-            }
-          })
-          .map(item => (
-            <tr>
-              <td>{item.number}</td>
-              <td><Link state={{la:item.latitude, lo:item.longitude, name:item.conm, img:item.img}} to="/Location"><a class="waves-effect waves-light btn"><i class="material-icons">location_on {item.conm}</i></a></Link></td>
-              <td>{item.hour}</td>
-              <td>{item.tpbiz}</td>
-              <td>{item.roadNmAddr}</td>
-              <td>{item.lotnoAddr}</td>
-              <td>{item.telno}</td>
-              <td><img src={item.img} alt={item.marketName} width='150px' height='150px' /></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );  
 }
