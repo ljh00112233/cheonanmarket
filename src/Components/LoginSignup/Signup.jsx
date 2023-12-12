@@ -16,17 +16,11 @@ const Signup = () => {
   };
 
   const handleLogin = () => {
-    // 간단한 유효성 검사
     if (!loginData.email || !loginData.password) {
       alert("Please enter both email and password.");
       return;
     }
-
-    // 여기에서 실제 로그인 로직을 구현합니다.
     console.log("Logging in with:", loginData);
-    // 로그인 로직 추가: 서버 호출 등
-
-    // 예시: 로그인 성공 시 페이지 이동
     window.open("/Login", "Login");
   };
 

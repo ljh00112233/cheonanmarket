@@ -5,34 +5,22 @@ import password_icon from "../Assets/password.png";
 
 const Login = () => {
   const [action] = useState("Login");
-
-  // 가상의 로그인 상태를 나타내는 변수
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // 이메일과 패스워드 상태
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // 이메일 입력 핸들러
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  // 패스워드 입력 핸들러
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  // 로그인 버튼 클릭 핸들러
   const handleLogin = () => {
-    // 여기에서 실제 로그인 로직을 구현합니다.
-    // 예시: 서버 호출 등
-
-    // 가상의 로그인 성공 조건
     if (email === "example@example.com" && password === "password123") {
       setIsLoggedIn(true);
-
-      // 로그인 성공 시 페이지 이동 (예시: 홈 페이지로 이동)
       window.open("/Dashboard", "_self");
     } else {
       alert("Invalid email or password. Please try again.");
