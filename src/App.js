@@ -9,6 +9,7 @@ import SJAPI from './Market/SJ/SJAPI'
 import Location from './Map/Location'
 import Signup from './Components/LoginSignup/Signup';
 import Login from './Components/LoginSignup/Login';
+import Dashboard from './Components/LoginSignup/Dashboard';
 import './css/materialize.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       <Route path="/Signup" element={<Signup />}></Route>
       <Route path='/Login' element={<Login />}></Route>	
+      <Route path='/Dashboard' element={<Dashboard />}></Route>	
       <Route path="/" element={<CEAPI/>}/>
       <Route path="/BC" element={<BCAPI/>}/>
       <Route path="/ST" element={<STAPI/>}/>
