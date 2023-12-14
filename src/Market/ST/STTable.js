@@ -20,10 +20,10 @@ const STTable = (props) => {
                         <form className="col s12">
                             <div className="row">
                                 <div className="input-field col s6">
-                                    <input placeholder="업종구분별검색" id="tpbiz" type="text" class="validate" onChange={searching1}/>
+                                    <input placeholder="업종구분별검색" id="tpbiz" type="text" className="validate" onChange={searching1}/>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input placeholder="상호명별검색" id="conm" type="text" class="validate" onChange={searching2}/>
+                                    <input placeholder="상호명별검색" id="conm" type="text" className="validate" onChange={searching2}/>
                                 </div>
                             </div>
                         </form>
