@@ -4,9 +4,9 @@ import DB from "../db/STdb.json"
 import 역전시장 from '../Market_img/역전시장.jpg';
 import STTable from "./STTable";
  
-function API() {
+function STAPI() {
   const [state, setState] = useState({data:[]});
-  const getMarket=()=>{
+  const getMarket = () => {
     const dbdata = DB.item;
     setState({
       data: dbdata,
@@ -75,4 +75,4 @@ function API() {
   );  
 }
 
-export default API;
+export default STAPI;

@@ -4,9 +4,9 @@ import DB from "../db/SHdb.json"
 import 성환이화시장 from '../Market_img/성환이화시장.jpg';
 import SHTable from "./SHTable";
 
-function API() {
+function SHAPI() {
   const [state, setState] = useState({data:[]});
-  const getMarket=()=>{
+  const getMarket = () => {
     const dbdata = DB.item;
     setState({
       data: dbdata,
@@ -83,4 +83,4 @@ function API() {
   );  
 }
 
-export default API;
+export default SHAPI;

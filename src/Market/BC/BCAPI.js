@@ -4,9 +4,9 @@ import DB from "../db/BCdb.json"
 import 병천시장 from '../Market_img/병천시장.jpg';
 import BCTable from './BCTable'
 
-function API() {
+function BCAPI() {
   const [state, setState] = useState({data:[]});
-  const getMarket=()=>{
+  const getMarket = () => {
     const dbdata = DB.item;
     setState({
       data: dbdata,
@@ -79,4 +79,4 @@ function API() {
   );  
 }
 
-export default API;
+export default BCAPI;

@@ -4,9 +4,9 @@ import DB from "../db/CEdb.json"
 import 천안중앙시장 from '../Market_img/천안중앙시장.jpg';
 import CETable from "./CETable";
 
-function API() {
+function CEAPI() {
   const [state, setState] = useState({data:[]});
-  const getMarket=()=>{
+  const getMarket = () => {
     const dbdata = DB.item;
     setState({
       data: dbdata,
@@ -83,4 +83,4 @@ function API() {
   );  
 }
 
-export default API;
+export default CEAPI;
