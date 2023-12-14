@@ -6,20 +6,16 @@ import CETable from "./CETable";
 
 function API() {
   const [state, setState] = useState({data:[]});
-  const {data} = state;
-
   const getMarket=()=>{
-    const data = DB.item;
+    const dbdata = DB.item;
     setState({
-      data: data,
+      data: dbdata,
     })
-    console.log(data);
   };
-
   useEffect(() => {
     setTimeout(() => {getMarket()},100);
   },[]);
-  
+  const {data} = state;
   return(
     <div>
       <nav>

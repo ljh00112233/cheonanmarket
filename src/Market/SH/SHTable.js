@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Map from '../../Map/Location'
 
-const CETable = (props) => {
+const SHTable = (props) => {
     const data = props.data;
     const [search1, setSearch1] = useState("");
     const [search2, setSearch2] = useState("");
@@ -77,4 +77,4 @@ const CETable = (props) => {
     );
 };
 
-export default CETable;
+export default SHTable;
