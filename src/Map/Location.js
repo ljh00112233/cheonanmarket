@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLocation } from "react-router-dom";
-import {Link} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const { kakao } = window;
 
 const Location=()=>{
@@ -9,7 +8,7 @@ const Location=()=>{
   const lo = location.state.lo;
   const name = location.state.name;
   const img = location.state.img;
-
+  console.log(la);
   useEffect(()=>{
     const container = document.getElementById('map');
     const options = {
