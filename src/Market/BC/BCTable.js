@@ -28,7 +28,6 @@ const BCTable = (props) => {
                             </div>
                         </form>
                     </div>
-                    <>상호명 클릭시 위치보기</>
                     <table className="striped">
                         <thead className="green lighten-2">
                             <tr>
