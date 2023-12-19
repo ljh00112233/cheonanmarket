@@ -60,7 +60,7 @@ const Login = () => {
         <div
           className={"submit"}
           onClick={() => {
-            window.open("/", "Signup");
+            window.open("/Signup", "Signup");
           }}
         >
           Signup
